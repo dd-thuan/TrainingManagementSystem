@@ -26,6 +26,10 @@ namespace App.Models
         }
         public DbSet<Course> courses { get; set; }
         public DbSet<Category> categories { get; set; }
+        public DbSet<TraineeCourse> traineeCourses { get; set; }
+        public DbSet<TraineeUser> traineeUsers { get; set; }
+        public DbSet<TrainerCourse> trainerCourses { get; set; }
+        public DbSet<TrainerUser>trainerUsers { get; set; }
         public static ApplicationDbContext Create()
         {
             return new ApplicationDbContext();

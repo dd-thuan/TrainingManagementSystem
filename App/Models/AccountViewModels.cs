@@ -1,4 +1,6 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 
 namespace App.Models
@@ -64,10 +66,34 @@ namespace App.Models
 
     public class RegisterViewModel
     {
+        [DisplayName("Full Name")]
+        public string FullName { get; set; }
+        [DisplayName("Working Place")]
+        public string WorkingPlace { get; set; }
+        [DisplayName("Email Address")]
+        public string EmailAddress { get; set; }
+        [DisplayName("Phone Number")]
+        public string Telephone { get; set; }
+        [DisplayName("Type")]
+        public TrainerUser.GetType Type { get; set; }
+        [DisplayName("Date of Birth")]
+        public DateTime DateOfBirth { get; set; }
+        [DisplayName("Programing Langueage")]
+        public string mainProgrammingLangueage { get; set; }
+        [DisplayName("Toeic Score")]
+        public string ToeicSocre { get; set; }
+        [DisplayName("Department")]
+        public string Department { get; set; }
+
+
+
         [Required]
         [EmailAddress]
         [Display(Name = "Email")]
         public string Email { get; set; }
+        [DisplayName("Type")]
+     
+
 
         [Required]
         [StringLength(100, ErrorMessage = "The {0} must be at least {2} characters long.", MinimumLength = 6)]

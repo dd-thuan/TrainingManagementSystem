@@ -29,6 +29,7 @@ namespace App.Controllers
 
 
         //
+        //
         //Course_List_And_CRUD
         public ActionResult CourseList(string searchString)
         {
@@ -113,7 +114,8 @@ namespace App.Controllers
 
 
 
-        
+
+        //
         //
         //Categpry_List_And_CRUD
         public ActionResult CategoryList(string searchString)
@@ -182,6 +184,11 @@ namespace App.Controllers
         }
 
 
+        
+
+        //
+        //
+        //
 
 
     }

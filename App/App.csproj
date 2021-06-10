@@ -193,12 +193,36 @@
     <Compile Include="Migrations\202106101028251_addCourseCategoryViewModel.Designer.cs">
       <DependentUpon>202106101028251_addCourseCategoryViewModel.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202106101348581_addTraineeCourseToDb.cs" />
+    <Compile Include="Migrations\202106101348581_addTraineeCourseToDb.Designer.cs">
+      <DependentUpon>202106101348581_addTraineeCourseToDb.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202106101351218_addTraineeUserToDb.cs" />
+    <Compile Include="Migrations\202106101351218_addTraineeUserToDb.Designer.cs">
+      <DependentUpon>202106101351218_addTraineeUserToDb.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202106101353287_addTrainerCourseToDb.cs" />
+    <Compile Include="Migrations\202106101353287_addTrainerCourseToDb.Designer.cs">
+      <DependentUpon>202106101353287_addTrainerCourseToDb.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202106101407078_addTrainerUser.cs" />
+    <Compile Include="Migrations\202106101407078_addTrainerUser.Designer.cs">
+      <DependentUpon>202106101407078_addTrainerUser.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202106101409111_addFieldInforInRegisterViewModel.cs" />
+    <Compile Include="Migrations\202106101409111_addFieldInforInRegisterViewModel.Designer.cs">
+      <DependentUpon>202106101409111_addFieldInforInRegisterViewModel.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Category.cs" />
     <Compile Include="Models\Course.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
+    <Compile Include="Models\TraineeCourse.cs" />
+    <Compile Include="Models\TraineeUser.cs" />
+    <Compile Include="Models\TrainerCourse.cs" />
+    <Compile Include="Models\TrainerUser.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
     <Compile Include="ViewModel\CourseCategoryViewModel.cs" />
@@ -299,6 +323,21 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202106101028251_addCourseCategoryViewModel.resx">
       <DependentUpon>202106101028251_addCourseCategoryViewModel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202106101348581_addTraineeCourseToDb.resx">
+      <DependentUpon>202106101348581_addTraineeCourseToDb.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202106101351218_addTraineeUserToDb.resx">
+      <DependentUpon>202106101351218_addTraineeUserToDb.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202106101353287_addTrainerCourseToDb.resx">
+      <DependentUpon>202106101353287_addTrainerCourseToDb.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202106101407078_addTrainerUser.resx">
+      <DependentUpon>202106101407078_addTrainerUser.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202106101409111_addFieldInforInRegisterViewModel.resx">
+      <DependentUpon>202106101409111_addFieldInforInRegisterViewModel.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
