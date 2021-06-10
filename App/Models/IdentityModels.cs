@@ -25,6 +25,7 @@ namespace App.Models
         {
         }
         public DbSet<Course> courses { get; set; }
+        public DbSet<Category> categories { get; set; }
         public static ApplicationDbContext Create()
         {
             return new ApplicationDbContext();

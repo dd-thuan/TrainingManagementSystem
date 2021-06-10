@@ -7,19 +7,16 @@ using System.Web;
 
 namespace App.Models
 {
-    public class Course
+    public class Category
     {
         [Key]
         public int Id { get; set; }
         [Required]
         [StringLength(255)]
-        [DisplayName("Course Name")]
+        [DisplayName("Category Name")]
         public string Name { get; set; }
         [Required]
-        [DisplayName("Description")]
+        [DisplayName("Desciption")]
         public string Description { get; set; }
-        public int CategoryId { get; set; }
-        public Category Category { get; set; }
-
     }
 }

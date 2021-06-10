@@ -177,8 +177,17 @@
     <Compile Include="Migrations\202106100634043_addCourseModel.Designer.cs">
       <DependentUpon>202106100634043_addCourseModel.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202106100638203_addCategoryModel.cs" />
+    <Compile Include="Migrations\202106100638203_addCategoryModel.Designer.cs">
+      <DependentUpon>202106100638203_addCategoryModel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202106100639434_updateCourseToCategory.cs" />
+    <Compile Include="Migrations\202106100639434_updateCourseToCategory.Designer.cs">
+      <DependentUpon>202106100639434_updateCourseToCategory.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\Category.cs" />
     <Compile Include="Models\Course.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
@@ -261,6 +270,12 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\202106100634043_addCourseModel.resx">
       <DependentUpon>202106100634043_addCourseModel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202106100638203_addCategoryModel.resx">
+      <DependentUpon>202106100638203_addCategoryModel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202106100639434_updateCourseToCategory.resx">
+      <DependentUpon>202106100639434_updateCourseToCategory.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
