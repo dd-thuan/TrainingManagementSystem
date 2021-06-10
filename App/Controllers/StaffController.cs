@@ -95,7 +95,7 @@ namespace App.Controllers
             courseInDb.Description = course.Courses.Description;
             courseInDb.CategoryId = course.Courses.CategoryId;
             _context.SaveChanges();
-            return RedirectToAction("ListCourse");
+            return RedirectToAction("CourseList");
         }
 
         public ActionResult DeleteCourse(int id)
@@ -103,7 +103,7 @@ namespace App.Controllers
             var courseInDb = _context.courses.SingleOrDefault(c => c.Id == id);
             _context.courses.Remove(courseInDb);
             _context.SaveChanges();
-            return RedirectToAction("ListCourse");
+            return RedirectToAction("CourseList");
         }
     }
 }

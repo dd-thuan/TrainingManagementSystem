@@ -261,6 +261,8 @@
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\Staff\CourseList.cshtml" />
     <Content Include="Views\Staff\CreateCourse.cshtml" />
+    <Content Include="Views\Staff\CourseDetails.cshtml" />
+    <Content Include="Views\Staff\EditCourse.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

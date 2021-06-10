@@ -1,0 +1,29 @@
+﻿@model App.ViewModel.CourseCategoryViewModel
+@{
+    ViewBag.Title = "EditCourse";
+}
+
+<h2>EditCourse</h2>
+
+@Html.ValidationSummary(false, "", new { @class = "bg-danger" })
+
+
+@using (Html.BeginForm("EditCourse", "Staff", "POST"))
+{
+    <div class="form-group">
+        @Html.HiddenFor(model => model.Courses.Id)
+        @Html.LabelFor(model => model.Courses.Name)
+        @Html.TextBoxFor(model => model.Courses.Name, new { @class = "form-control" })
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(model => model.Courses.Description)
+        @Html.TextAreaFor(model => model.Courses.Description, new { @class = "form-control" })
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(model => model.Courses.Category.Name)
+        @Html.DropDownListFor(model => model.Courses.CategoryId, new SelectList(Model.Categories, "Id", "Name"))
+    </div>
+    <div class="form-group">
+        <button type="submit" class="btn btn-default">Edit Course</button>
+    </div>
+}

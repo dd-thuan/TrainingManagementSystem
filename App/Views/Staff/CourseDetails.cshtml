@@ -1,0 +1,18 @@
+﻿@model App.ViewModel.CourseCategoryViewModel
+@{
+    ViewBag.Title = "CourseDetails";
+}
+
+<h2>CourseDetails</h2>
+
+<div class="form-group">
+    @Html.ActionLink("Back to My List", "CourseList", "Staff", null, new { @class = "btn btn-primary" })
+</div>
+
+<div class="panel panel-primary">
+    <div class="panel-body">
+        <p>Course Name: @Model.Courses.Name</p>
+        <p>Description: @Model.Courses.Description</p>
+        <p>Telephone: @Model.Courses.Category.Name</p>
+    </div>
+</div>
