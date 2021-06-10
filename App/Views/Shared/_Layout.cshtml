@@ -25,7 +25,11 @@
                 <ul class="nav navbar-nav">
                     <li>@Html.ActionLink("CourseList", "CourseList", "Staff")</li>
                     <li>@Html.ActionLink("Category", "CategoryList", "Staff")</li>
-                    <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
+                    <li>@Html.ActionLink("New Trainee", "CreateTrainee", "Staff")</li>
+                    <li>@Html.ActionLink("New Trainer", "CreateTrainer", "Admin")</li>
+                    <li>@Html.ActionLink("New Staff", "CreateStaff", "Admin")</li>
+                    <li>@Html.ActionLink("Trainee List", "TraineeList", "Staff")</li>
+
                 </ul>
                 @Html.Partial("_LoginPartial")
             </div>

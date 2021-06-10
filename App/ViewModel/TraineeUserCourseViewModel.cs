@@ -11,5 +11,6 @@ namespace App.ViewModel
         public ApplicationUser User { get; set; }
         public TraineeCourse TraineeUser { get; set; }
         public IEnumerable<Course> Courses { get; set; }
+
     }
 }
