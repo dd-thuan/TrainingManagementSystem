@@ -24,7 +24,7 @@ namespace App.Models
             : base("DefaultConnection", throwIfV1Schema: false)
         {
         }
-
+        public DbSet<Course> courses { get; set; }
         public static ApplicationDbContext Create()
         {
             return new ApplicationDbContext();

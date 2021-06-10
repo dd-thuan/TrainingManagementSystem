@@ -3,10 +3,20 @@ namespace App.Migrations
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class enableMigration : DbMigration
+    public partial class addCourseModel : DbMigration
     {
         public override void Up()
         {
+            CreateTable(
+                "dbo.Courses",
+                c => new
+                    {
+                        Id = c.Int(nullable: false, identity: true),
+                        Name = c.String(nullable: false, maxLength: 255),
+                        Description = c.String(nullable: false),
+                    })
+                .PrimaryKey(t => t.Id);
+            
             CreateTable(
                 "dbo.AspNetRoles",
                 c => new
@@ -94,6 +104,7 @@ namespace App.Migrations
             DropTable("dbo.AspNetUsers");
             DropTable("dbo.AspNetUserRoles");
             DropTable("dbo.AspNetRoles");
+            DropTable("dbo.Courses");
         }
     }
 }

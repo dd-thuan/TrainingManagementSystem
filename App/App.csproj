@@ -173,9 +173,9 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202106100625199_enableMigration.cs" />
-    <Compile Include="Migrations\202106100625199_enableMigration.Designer.cs">
-      <DependentUpon>202106100625199_enableMigration.cs</DependentUpon>
+    <Compile Include="Migrations\202106100634043_addCourseModel.cs" />
+    <Compile Include="Migrations\202106100634043_addCourseModel.Designer.cs">
+      <DependentUpon>202106100634043_addCourseModel.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -259,8 +259,8 @@
     <Content Include="Scripts\jquery-3.4.1.min.map" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\202106100625199_enableMigration.resx">
-      <DependentUpon>202106100625199_enableMigration.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202106100634043_addCourseModel.resx">
+      <DependentUpon>202106100634043_addCourseModel.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
