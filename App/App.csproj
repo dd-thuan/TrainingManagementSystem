@@ -189,6 +189,10 @@
     <Compile Include="Migrations\202106100639434_updateCourseToCategory.Designer.cs">
       <DependentUpon>202106100639434_updateCourseToCategory.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202106101028251_addCourseCategoryViewModel.cs" />
+    <Compile Include="Migrations\202106101028251_addCourseCategoryViewModel.Designer.cs">
+      <DependentUpon>202106101028251_addCourseCategoryViewModel.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Category.cs" />
@@ -255,11 +259,11 @@
     <Content Include="Views\Manage\VerifyPhoneNumber.cshtml" />
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
+    <Content Include="Views\Staff\CourseList.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Views\Admin\" />
-    <Folder Include="Views\Staff\" />
     <Folder Include="Views\Trainee\" />
     <Folder Include="Views\Trainer\" />
   </ItemGroup>
@@ -285,6 +289,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202106100639434_updateCourseToCategory.resx">
       <DependentUpon>202106100639434_updateCourseToCategory.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202106101028251_addCourseCategoryViewModel.resx">
+      <DependentUpon>202106101028251_addCourseCategoryViewModel.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

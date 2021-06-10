@@ -14,6 +14,11 @@ namespace App.Controllers
     {
 
         private ApplicationDbContext _context;
+
+        public StaffController()
+        {
+            _context = new ApplicationDbContext();
+        }
         // GET: Staff
         public ActionResult Index()
         {
