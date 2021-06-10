@@ -1,4 +1,5 @@
-﻿using System;
+﻿using App.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -8,6 +9,8 @@ namespace App.Controllers
 {
     public class StaffController : Controller
     {
+
+        private ApplicationDbContext _context;
         // GET: Staff
         public ActionResult Index()
         {
