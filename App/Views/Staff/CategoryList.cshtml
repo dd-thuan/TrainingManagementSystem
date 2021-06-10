@@ -35,7 +35,7 @@
             <tr>
                 <td>@item.Name</td>
                 <td>
-                    @Html.ActionLink("Details", "CategoryDetail", "Staff", new { id = item.Id }, new { @class = "btn btn-info" })
+                    @Html.ActionLink("Details", "CategoryDetails", "Staff", new { id = item.Id }, new { @class = "btn btn-info" })
                     @Html.ActionLink("Edit", "EditCategory", "Staff", new { id = item.Id }, new { @class = "btn btn-info" })
                     @Html.ActionLink("Delete", "DeleteCategory", "Staff", new { id = item.Id }, new { @class = "btn btn-info" })
                 </td>

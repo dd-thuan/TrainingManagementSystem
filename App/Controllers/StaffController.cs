@@ -170,7 +170,7 @@ namespace App.Controllers
             categoryInDb.Name = category.Name;
             categoryInDb.Description = category.Description;
             _context.SaveChanges();
-            return RedirectToAction("ListCategory");
+            return RedirectToAction("CategoryList");
         }
 
         public ActionResult DeleteCategory(int id)
@@ -178,7 +178,7 @@ namespace App.Controllers
             var categoryInDb = _context.categories.SingleOrDefault(c => c.Id == id);
             _context.categories.Remove(categoryInDb);
             _context.SaveChanges();
-            return RedirectToAction("ListCategory");
+            return RedirectToAction("CategoryList");
         }
 
 
