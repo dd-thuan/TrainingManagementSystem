@@ -1,0 +1,23 @@
+﻿@model App.Models.Category
+@{
+    ViewBag.Title = "CreateCategory";
+}
+
+<h2>CreateCategory</h2>
+
+@Html.ValidationSummary(false, "", new { @class = "bg-danger" })
+
+@using (Html.BeginForm("CreateCategory", "Staff", "POST"))
+{
+    <div class="form-group">
+        @Html.LabelFor(model => model.Name)
+        @Html.TextBoxFor(model => model.Name, new { @class = "form-control" })
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(model => model.Description)
+        @Html.TextBoxFor(model => model.Description, new { @class = "form-control" })
+    </div>
+    <div class="form-group">
+        <button type="submit" class="btn btn-primary">Create Category</button>
+    </div>
+}

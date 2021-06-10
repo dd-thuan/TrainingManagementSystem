@@ -1,0 +1,27 @@
+﻿@model App.Models.Category
+@{
+    ViewBag.Title = "EditCategory";
+}
+
+<h2>EditCategory</h2>
+
+
+@Html.ValidationSummary(false, "", new { @class = "bg-danger" })
+
+@using (Html.BeginForm("EditCategory", "Staff", "POST"))
+{
+    <div class="form-group">
+        @Html.HiddenFor(model => model.Id)
+        @Html.LabelFor(model => model.Name)
+        @Html.TextBoxFor(model => model.Name, new { @class = "form-control" })
+        @Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger" })
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(model => model.Description)
+        @Html.TextBoxFor(model => model.Description, new { @class = "form-control" })
+        @Html.ValidationMessageFor(model => model.Description, "", new { @class = "text-danger" })
+    </div>
+    <div class="form-group">
+        <button type="submit" class="btn btn-default">Edit Category</button>
+    </div>
+}

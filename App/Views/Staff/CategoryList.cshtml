@@ -1,0 +1,46 @@
+﻿@model IEnumerable<App.Models.Category>
+@{
+    ViewBag.Title = "CategoryList";
+}
+
+
+<h2>List Category</h2>
+
+<div class="form-group">
+    @Html.ActionLink("Back to Home", "Index", "Home", null, new { @class = "btn btn-primary" })
+</div>
+
+@using (Html.BeginForm("CategoryList", "Staff", "POST"))
+{
+    <div class="form-group">
+        @Html.TextBox("searchString", "")
+        <button type="submit"><i class="fa fa-search"></i></button>
+    </div>
+}
+
+<div class="form-group">
+    @Html.ActionLink("Create Category", "CreateCategory", "Staff", null, new { @class = "btn btn-primary" })
+</div>
+
+<table class="table table-bordered">
+    <thead class="thead-light">
+        <tr>
+            <th>Category Name</th>
+            <th>Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.Name</td>
+                <td>
+                    @Html.ActionLink("Details", "CategoryDetail", "Staff", new { id = item.Id }, new { @class = "btn btn-info" })
+                    @Html.ActionLink("Edit", "EditCategory", "Staff", new { id = item.Id }, new { @class = "btn btn-info" })
+                    @Html.ActionLink("Delete", "DeleteCategory", "Staff", new { id = item.Id }, new { @class = "btn btn-info" })
+                </td>
+
+            </tr>
+        }
+    </tbody>
+</table>

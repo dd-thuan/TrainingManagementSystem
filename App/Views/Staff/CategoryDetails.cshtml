@@ -1,0 +1,18 @@
+﻿@model  App.Models.Category
+@{
+    ViewBag.Title = "CategoryDetails";
+}
+
+<h2>Category Details</h2>
+
+
+<div class="form-group">
+    @Html.ActionLink("Back to My Tasks", "CategoryList", "Staff", null, new { @class = "btn btn-primary" })
+</div>
+
+<div class="panel panel-primary">
+    <div class="panel-body">
+        <p>Name: @Model.Name</p>
+        <p>Description: @Model.Description</p>
+    </div>
+</div>

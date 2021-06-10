@@ -263,6 +263,10 @@
     <Content Include="Views\Staff\CreateCourse.cshtml" />
     <Content Include="Views\Staff\CourseDetails.cshtml" />
     <Content Include="Views\Staff\EditCourse.cshtml" />
+    <Content Include="Views\Staff\CategoryList.cshtml" />
+    <Content Include="Views\Staff\CreateCategory.cshtml" />
+    <Content Include="Views\Staff\CategoryDetails.cshtml" />
+    <Content Include="Views\Staff\EditCategory.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

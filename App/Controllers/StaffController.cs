@@ -25,6 +25,11 @@ namespace App.Controllers
             return View();
         }
 
+
+
+
+        //
+        //Course_List_And_CRUD
         public ActionResult CourseList(string searchString)
         {
             var course = _context.courses.Include(t =>t.Category).ToList();
@@ -105,5 +110,79 @@ namespace App.Controllers
             _context.SaveChanges();
             return RedirectToAction("CourseList");
         }
+
+
+
+        
+        //
+        //Categpry_List_And_CRUD
+        public ActionResult CategoryList(string searchString)
+        {
+            var categories = _context.categories.ToList();
+            if (!searchString.IsNullOrWhiteSpace())
+            {
+                categories = _context.categories
+                .Where(c => c.Name.Contains(searchString))
+                .ToList();
+            }
+            return View(categories);
+        }
+
+        [HttpGet]
+        public ActionResult CreateCategory()
+        {
+            return View();
+        }
+        [HttpPost]
+        public ActionResult CreateCategory(Category category)
+        {
+            if (ModelState.IsValid)
+            {
+                var newCategories = new Category()
+                {
+                    Name = category.Name,
+                    Description = category.Description
+                };
+                _context.categories.Add(newCategories);
+                _context.SaveChanges();
+                return RedirectToAction("CategoryList");
+            }
+            return View();
+        }
+
+        public ActionResult CategoryDetails(int id)
+        {
+            var categoryInDb = _context.categories.SingleOrDefault(c => c.Id == id);
+
+            return View(categoryInDb);
+        }
+
+        [HttpGet]
+        public ActionResult EditCategory(int id)
+        {
+            var categoryInDb = _context.categories.SingleOrDefault(c => c.Id == id);
+            return View(categoryInDb);
+        }
+        [HttpPost]
+        public ActionResult EditCategory(Category category)
+        {
+            var categoryInDb = _context.categories.SingleOrDefault(c => c.Id == category.Id);
+            categoryInDb.Name = category.Name;
+            categoryInDb.Description = category.Description;
+            _context.SaveChanges();
+            return RedirectToAction("ListCategory");
+        }
+
+        public ActionResult DeleteCategory(int id)
+        {
+            var categoryInDb = _context.categories.SingleOrDefault(c => c.Id == id);
+            _context.categories.Remove(categoryInDb);
+            _context.SaveChanges();
+            return RedirectToAction("ListCategory");
+        }
+
+
+
+
     }
 }
