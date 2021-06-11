@@ -1,0 +1,23 @@
+﻿@model  App.ViewModel.TraineeUserCourseViewModel
+@{
+    ViewBag.Title = "ChangeCourseTrainee";
+}
+
+<h2>ChangeCourseTrainee</h2>
+
+<div class="form-group">
+    <p>Current Course: @Model.TraineeUser.CourseName</p>
+</div>
+
+@using (Html.BeginForm("ChangeCourseTrainee", "Staff", "POST"))
+{
+    <div class="form-group">
+        @Html.HiddenFor(model => model.TraineeUser.Id)
+        @Html.LabelFor(model => model.TraineeUser.Course.Name)
+        @Html.DropDownListFor(model => model.TraineeUser.CourseId, new SelectList(Model.Courses, "Id", "Name"))
+    </div>
+
+    <div class="form-group">
+        <button type="submit" class="btn btn-primary">Change Course</button>
+    </div>
+}

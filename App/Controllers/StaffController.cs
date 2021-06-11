@@ -259,7 +259,7 @@ namespace App.Controllers
             var traineeInDb = _context.traineeUsers.SingleOrDefault(t => t.Id == id);
             return View(traineeInDb);
         }
-       /* [HttpPost]
+        [HttpPost]
         public ActionResult UpdateProfileTrainee(TraineeUser trainee)
         {
             var traineeInDb = _context.traineeUsers.SingleOrDefault(t => t.Id == trainee.Id);
@@ -280,7 +280,7 @@ namespace App.Controllers
             }
             _context.SaveChanges();
             return RedirectToAction("TraineeList");
-        }*/
+        }
 
 
         public ActionResult ViewCourseAssignedTrainee(string id)
@@ -318,6 +318,29 @@ namespace App.Controllers
             return RedirectToAction("TraineeList");
         }
 
+        [HttpGet]
+        public ActionResult ChangeCourseTrainee(int id)
+        {
+            var traineeCourseInDb = _context.traineeCourses.SingleOrDefault(t => t.Id == id);
+            var viewModel = new TraineeUserCourseViewModel()
+            {
+                TraineeUser = traineeCourseInDb,
+                Courses = _context.courses.ToList()
+            };
+            return View(viewModel);
+        }
+        [HttpPost]
+        public ActionResult ChangeCourseTrainee(TraineeUserCourseViewModel traineeCourse)
+        {
+            var traineeCourseInDb = _context.traineeCourses.SingleOrDefault(t => t.Id == traineeCourse.TraineeUser.Id);
+            var courseInDb = _context.courses.SingleOrDefault(t => t.Id == traineeCourse.TraineeUser.CourseId);
+            traineeCourseInDb.CourseId = traineeCourse.TraineeUser.CourseId;
+            traineeCourseInDb.CourseName = courseInDb.Name;
+            _context.SaveChanges();
+            return RedirectToAction("TraineeList");
+        }
+
+      
 
     }
 }

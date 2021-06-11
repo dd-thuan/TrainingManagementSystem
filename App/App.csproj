@@ -303,6 +303,7 @@
     <Content Include="Views\Staff\UpdateProfileTrainee.cshtml" />
     <Content Include="Views\Staff\ViewCourseAssignedTrainee.cshtml" />
     <Content Include="Views\Staff\AssignCourseTrainee.cshtml" />
+    <Content Include="Views\Staff\ChangeCourseTrainee.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
