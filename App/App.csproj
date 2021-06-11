@@ -299,6 +299,10 @@
     <Content Include="Views\Staff\EditCategory.cshtml" />
     <Content Include="Views\Staff\CreateTrainee.cshtml" />
     <Content Include="Views\Staff\TraineeList.cshtml" />
+    <Content Include="Views\Staff\TraineeProfile.cshtml" />
+    <Content Include="Views\Staff\UpdateProfileTrainee.cshtml" />
+    <Content Include="Views\Staff\ViewCourseAssignedTrainee.cshtml" />
+    <Content Include="Views\Staff\AssignCourseTrainee.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

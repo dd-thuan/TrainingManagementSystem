@@ -1,0 +1,75 @@
+﻿@model App.Models.TraineeUser
+@{
+    ViewBag.Title = "TraineeProfile";
+}
+
+<h2>TraineeProfile</h2>
+
+
+<div class="form-group">
+    @Html.ActionLink("Back to Trainee List", "TraineeList", "Staff",
+        null,
+        new { @class = "btn btn-primary" })
+</div>
+
+<div class="form-group">
+    @Html.ActionLink("Update Profile Trainee", "UpdateProfileTrainee", "Staff",
+        null,
+        new { @class = "btn btn-primary" })
+</div>
+
+<div class="form-group">
+    @Html.LabelFor(m => m.EmailAddress, new { @class = "col-md-2 control-label" })
+    <div>
+        @Html.DisplayFor(m => m.UserName)
+    </div>
+</div>
+
+<div class="form-group">
+    @Html.LabelFor(m => m.FullName, new { @class = "col-md-2 control-label" })
+    <div>
+        @Html.DisplayFor(m => m.FullName)
+    </div>
+</div>
+
+<div class="form-group">
+    @Html.LabelFor(m => m.DateOfBirth, new { @class = "col-md-2 control-label" })
+    <div>
+        @Html.DisplayFor(m => m.DateOfBirth)
+    </div>
+</div>
+
+<div class="form-group">
+    @Html.LabelFor(m => m.age, new { @class = "col-md-2 control-label" })
+    <div>
+        @Html.DisplayFor(m => m.age)
+    </div>
+</div>
+
+<div class="form-group">
+    @Html.LabelFor(m => m.Telephone, new { @class = "col-md-2 control-label" })
+    <div>
+        @Html.DisplayFor(m => m.Telephone)
+    </div>
+</div>
+
+<div class="form-group">
+    @Html.LabelFor(m => m.Department, new { @class = "col-md-2 control-label" })
+    <div>
+        @Html.DisplayFor(m => m.Department)
+    </div>
+</div>
+
+<div class="form-group">
+    @Html.LabelFor(m => m.ToeicScore, new { @class = "col-md-2 control-label" })
+    <div>
+        @Html.DisplayFor(m => m.ToeicScore)
+    </div>
+</div>
+
+<div class="form-group">
+    @Html.LabelFor(m => m.mainProgrammingLanguage, new { @class = "col-md-2 control-label" })
+    <div>
+        @Html.DisplayFor(m => m.mainProgrammingLanguage)
+    </div>
+</div>

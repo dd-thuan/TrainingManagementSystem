@@ -38,9 +38,9 @@
                 <td>@item.Telephone</td>
 
                 <td>
-                    @Html.ActionLink("Assign Course", "AssignCourseTrainee", "TrainingStaffs", new { id = item.Id }, new { @class = "btn btn-success" })
-                    @Html.ActionLink("View Course", "ViewCourseAssignedTrainee", "TrainingStaffs", new { id = item.Id }, new { @class = "btn btn-info" })
-                    @Html.ActionLink("Detail Profile", "DetailTraineeProfile", "TrainingStaffs", new { id = item.Id }, new { @class = "btn btn-warning" })
+                    @Html.ActionLink("Assign Course", "AssignCourseTrainee", "Staff", new { id = item.Id }, new { @class = "btn btn-success" })
+                    @Html.ActionLink("View Course", "ViewCourseAssignedTrainee", "Staff", new { id = item.Id }, new { @class = "btn btn-info" })
+                    @Html.ActionLink("Detail Profile", "TraineeProfile", "Staff", new { id = item.Id }, new { @class = "btn btn-warning" })
                 </td>
 
             </tr>

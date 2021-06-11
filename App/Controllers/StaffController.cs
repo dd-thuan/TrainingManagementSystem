@@ -174,7 +174,7 @@ namespace App.Controllers
         public ActionResult EditCategory(Category category)
         {
             var categoryInDb = _context.categories.SingleOrDefault(c => c.Id == category.Id);
-            categoryInDb.Name = category.Name;
+            categoryInDb.Name = category.Name;  
             categoryInDb.Description = category.Description;
             _context.SaveChanges();
             return RedirectToAction("CategoryList");
@@ -194,7 +194,7 @@ namespace App.Controllers
 
         //
         //
-        //List_Trainee_CRUD
+        //TraineeList_Create-DeleteAccount_UpdateProfile_AssignCourse_
 
         public ActionResult TraineeList(string searchString)
         {
@@ -245,6 +245,7 @@ namespace App.Controllers
             return View(model);
         }
 
+        
         public ActionResult TraineeProfile(string id)
         {
             var traineeInDb = _context.traineeUsers.SingleOrDefault(t => t.Id == id);
@@ -279,6 +280,43 @@ namespace App.Controllers
             _context.SaveChanges();
             return RedirectToAction("TraineeList");
         }
+
+
+        public ActionResult ViewCourseAssignedTrainee(string id)
+        {
+            var traineeCourse = _context.traineeCourses.Where(t => t.TraineeId == id).ToList();
+            return View(traineeCourse);
+        }
+
+        [HttpGet]
+        public ActionResult AssignCourseTrainee(string id)
+        {
+            var UserInDb = _context.Users.SingleOrDefault(t => t.Id == id);
+            var viewModel = new TraineeUserCourseViewModel()
+            {
+                User = UserInDb,
+                Courses = _context.courses.ToList()
+            };
+            return View(viewModel);
+        }
+
+        [HttpPost]
+        public ActionResult AssignCourseTrainee(TraineeUserCourseViewModel traineeCourse)
+        {
+            var newTraineeCourse = new TraineeCourse()
+            {
+                TraineeId = traineeCourse.User.Id,
+                CourseId = traineeCourse.TraineeUser.CourseId,
+            };
+            var TraineeCourseInDb = _context.traineeCourses.Add(newTraineeCourse);
+            var traineeUserObject = _context.traineeUsers.SingleOrDefault(t => t.Id == TraineeCourseInDb.TraineeId);
+            var CourseObject = _context.courses.SingleOrDefault(t => t.Id == TraineeCourseInDb.CourseId);
+            TraineeCourseInDb.TraineeName = traineeUserObject.UserName;
+            TraineeCourseInDb.CourseName = CourseObject.Name;
+            _context.SaveChanges();
+            return RedirectToAction("TraineeList");
+        }
+
 
     }
 }
