@@ -39,10 +39,13 @@
             <tr>
                 <td>@item.FullName</td>
                 <td>
+                    @Html.ActionLink("Assign Course", "AssignCourseTrainer", "Staff", new { id = item.Id }, new { @class = "btn btn-success" })
+                    @Html.ActionLink("View Course", "ViewCourseAssignedTrainer", "Staff", new { id = item.Id }, new { @class = "btn btn-info" })
+                  
                     @Html.ActionLink("Reset Password", "ResetTrainerPassword", "Account", new { id = item.Id }, new { @class = "btn btn-primary" })
                     @Html.ActionLink("Detail Profile", "ProfileTrainer", "Staff", new { id = item.Id }, new { @class = "btn btn-warning" })
                     @Html.ActionLink("Delete", "DeleteTrainer", "Staff", new { id = item.Id }, new { @class = "btn btn-danger" })
-                    @Html.ActionLink("Update Profile Trainer", "UpdateProfileTrainer", "Staff", new { id = item.Id}, new { @class = "btn btn-primary" })
+                    @Html.ActionLink("Update Profile Trainer", "UpdateProfileTrainer", "Staff", new { id = item.Id }, new { @class = "btn btn-primary" })
                 </td>
 
             </tr>

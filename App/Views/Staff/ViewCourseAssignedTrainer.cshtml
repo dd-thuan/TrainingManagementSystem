@@ -1,0 +1,36 @@
+﻿@model IEnumerable<App.Models.TrainerCourse>
+@{
+    ViewBag.Title = "ViewCourseAssignedTrainer";
+}
+
+<h2>ViewCourseAssignedTrainer</h2>
+
+
+<div class="form-group">
+    @Html.ActionLink("Back to List Trainer", "TrainerList", "Staff",
+        null,
+        new { @class = "btn btn-primary" })
+</div>
+
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>Course Name</th>
+            <th>Action</th>
+
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.CourseName</td>
+                <td>
+                    @Html.ActionLink("Change Course", "ChangeCourseTrainer", "TrainingStaffs", new { id = item.Id }, new { @class = "btn btn-warning" })
+                    @Html.ActionLink("Remove Course", "RemoveCourseTrainer", "TrainingStaffs", new { id = item.Id }, new { @class = "btn btn-danger" })
+                </td>
+
+            </tr>
+        }
+    </tbody>
+</table>
