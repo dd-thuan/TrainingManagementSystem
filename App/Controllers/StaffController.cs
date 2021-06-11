@@ -349,5 +349,111 @@ namespace App.Controllers
         }
 
 
+
+
+
+
+        //
+        //TrainerList_CreateAccount_Assign-Change-DeleteCourseTrainer
+
+        [HttpGet]
+        public ActionResult CreateTrainer()
+        {
+            return View();
+        }
+        [HttpPost]
+        public ActionResult CreateTrainer(RegisterViewModel model)
+        {
+            if (ModelState.IsValid)
+            {
+                var user = new ApplicationUser { UserName = model.Email, Email = model.Email };
+                var result = _userManager.Create(user, model.Password);
+                if (result.Succeeded)
+                {
+                    _userManager.AddToRole(user.Id, "Trainer");
+                    var trainerUser = new TrainerUser()
+                    {
+                        Id = user.Id,
+                        UserName = user.UserName,
+                        FullName = model.FullName,
+                        Telephone = model.Telephone,
+                        WorkingPlace = model.WorkingPlace,
+                        type = model.Type,
+                        EmailAddress = user.UserName
+                    };
+                    _context.trainerUsers.Add(trainerUser);
+                }
+                _context.SaveChanges();
+                return RedirectToAction("TrainerList");
+            }
+            return View(model);
+        }
+        public ActionResult TrainerList(string searchString)
+        {
+            var trainerInDb = _context.trainerUsers.ToList();
+            if (!searchString.IsNullOrWhiteSpace())
+            {
+                trainerInDb = _context.trainerUsers
+                .Where(m => m.FullName.Contains(searchString) || m.Telephone.Contains(searchString))
+                .ToList();
+            }
+          
+            return View(trainerInDb);
+        }
+
+        public ActionResult ProfileTrainer(string id)
+        {
+            var trainerInDb = _context.trainerUsers.SingleOrDefault(t => t.Id == id);
+      
+            return View(trainerInDb);
+        }
+
+        [HttpGet]
+        public ActionResult UpdateProfileTrainer(string id)
+        {
+            var trainerInDd = _context.trainerUsers.SingleOrDefault(c => c.Id == id);
+            return View(trainerInDd);
+        }
+
+        [HttpPost]
+        public ActionResult UpdateProfileTrainer(TrainerUser trainer)
+        {
+            var trainerInDb = _context.trainerUsers.SingleOrDefault(t => t.Id == trainer.Id);
+            {
+                trainerInDb.WorkingPlace = trainer.WorkingPlace;
+                trainerInDb.type = trainer.type;
+                trainerInDb.Telephone = trainer.Telephone;
+                trainerInDb.EmailAddress = trainer.EmailAddress;
+            }
+            _context.SaveChanges();
+            return RedirectToAction("TrainerList");
+        }
+
+        public ActionResult DeleteTrainer(string id)
+        {
+            var userInDb = _context.Users.SingleOrDefault(s => s.Id == id);
+            var trainerInDb = _context.trainerUsers.SingleOrDefault(t => t.Id == id);
+            _context.trainerUsers.Remove(trainerInDb);
+            _context.Users.Remove(userInDb);
+            _context.SaveChanges();
+            return RedirectToAction("TrainerList");
+        }
+
+        [HttpGet]
+        public ActionResult ChangePasswordTrainer()
+        {
+            return View();
+        }
+        [HttpPost]
+        public ActionResult ChangePasswordTrainer(string password)
+        {
+            var CurrentTrainerId = User.Identity.GetUserId();
+            var TrainerInDb = _userManager.FindById(CurrentTrainerId);
+            string newPassword = password;
+            _userManager.RemovePassword(CurrentTrainerId);
+            _userManager.AddPassword(CurrentTrainerId, newPassword);
+            _userManager.Update(TrainerInDb);
+            return RedirectToAction("TrainerList");
+        }
     }
 }

@@ -1,0 +1,20 @@
+﻿@model App.Models.TrainerUser
+@{
+    ViewBag.Title = "ProfileTrainer";
+}
+
+<h2>ProfileTrainer</h2>
+
+<div class="form-group">
+    @Html.ActionLink("Back to TrainerList", "TrainerList", "Staff", null, new { @class = "btn btn-primary" })
+</div>
+
+<div class="panel panel-primary">
+    <div class="panel-body">
+        <p>Email: @Model.EmailAddress</p>
+        <p>Name: @Model.FullName</p>
+        <p>Telephone: @Model.Telephone</p>
+        <p>Type: @Model.type</p>
+        <p>Working Place: @Model.WorkingPlace</p>
+    </div>
+</div>
