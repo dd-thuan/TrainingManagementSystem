@@ -340,7 +340,14 @@ namespace App.Controllers
             return RedirectToAction("TraineeList");
         }
 
-      
+        public ActionResult RemoveCourseTrainee(int id)
+        {
+            var traineeCourseInDb = _context.traineeCourses.SingleOrDefault(c => c.Id == id);
+            _context.traineeCourses.Remove(traineeCourseInDb);
+            _context.SaveChanges();
+            return RedirectToAction("ViewCourseAssignedTrainee");
+        }
+
 
     }
 }
