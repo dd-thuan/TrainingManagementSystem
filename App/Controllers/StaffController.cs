@@ -252,13 +252,14 @@ namespace App.Controllers
             return View(traineeInDb);
         }
 
+
         [HttpGet]
         public ActionResult UpdateProfileTrainee(string id)
         {
             var traineeInDb = _context.traineeUsers.SingleOrDefault(t => t.Id == id);
             return View(traineeInDb);
         }
-        [HttpPost]
+       /* [HttpPost]
         public ActionResult UpdateProfileTrainee(TraineeUser trainee)
         {
             var traineeInDb = _context.traineeUsers.SingleOrDefault(t => t.Id == trainee.Id);
@@ -279,7 +280,7 @@ namespace App.Controllers
             }
             _context.SaveChanges();
             return RedirectToAction("TraineeList");
-        }
+        }*/
 
 
         public ActionResult ViewCourseAssignedTrainee(string id)
