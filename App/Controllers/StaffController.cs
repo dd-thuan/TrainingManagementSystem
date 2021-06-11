@@ -7,6 +7,7 @@ using System;
 using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
+using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
 
@@ -17,13 +18,14 @@ namespace App.Controllers
 
         private ApplicationDbContext _context;
         private UserManager<ApplicationUser> _userManager;
-
         public StaffController()
         {
             _context = new ApplicationDbContext();
-            _userManager = new UserManager<ApplicationUser>(
-               new UserStore<ApplicationUser>(new ApplicationDbContext()));
+            _userManager = new UserManager<ApplicationUser>(new UserStore<ApplicationUser>(new ApplicationDbContext()));
         }
+
+
+
         // GET: Staff
         public ActionResult Index()
         {
@@ -38,7 +40,7 @@ namespace App.Controllers
         //Course_List_And_CRUD
         public ActionResult CourseList(string searchString)
         {
-            var course = _context.courses.Include(t =>t.Category).ToList();
+            var course = _context.courses.Include(t => t.Category).ToList();
             if (!searchString.IsNullOrWhiteSpace())
             {
                 course = _context.courses
@@ -174,7 +176,7 @@ namespace App.Controllers
         public ActionResult EditCategory(Category category)
         {
             var categoryInDb = _context.categories.SingleOrDefault(c => c.Id == category.Id);
-            categoryInDb.Name = category.Name;  
+            categoryInDb.Name = category.Name;
             categoryInDb.Description = category.Description;
             _context.SaveChanges();
             return RedirectToAction("CategoryList");
@@ -245,7 +247,7 @@ namespace App.Controllers
             return View(model);
         }
 
-        
+
         public ActionResult TraineeProfile(string id)
         {
             var traineeInDb = _context.traineeUsers.SingleOrDefault(t => t.Id == id);
@@ -397,14 +399,14 @@ namespace App.Controllers
                 .Where(m => m.FullName.Contains(searchString) || m.Telephone.Contains(searchString))
                 .ToList();
             }
-          
+
             return View(trainerInDb);
         }
 
         public ActionResult ProfileTrainer(string id)
         {
             var trainerInDb = _context.trainerUsers.SingleOrDefault(t => t.Id == id);
-      
+
             return View(trainerInDb);
         }
 
@@ -438,22 +440,5 @@ namespace App.Controllers
             _context.SaveChanges();
             return RedirectToAction("TrainerList");
         }
-
-        [HttpGet]
-        public ActionResult ChangePasswordTrainer()
-        {
-            return View();
-        }
-        [HttpPost]
-        public ActionResult ChangePasswordTrainer(string password)
-        {
-            var CurrentTrainerId = User.Identity.GetUserId();
-            var TrainerInDb = _userManager.FindById(CurrentTrainerId);
-            string newPassword = password;
-            _userManager.RemovePassword(CurrentTrainerId);
-            _userManager.AddPassword(CurrentTrainerId, newPassword);
-            _userManager.Update(TrainerInDb);
-            return RedirectToAction("TrainerList");
-        }
-    }
+    }       
 }

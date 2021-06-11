@@ -9,6 +9,7 @@ using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
 using App.Models;
+using System.Net;
 
 namespace App.Controllers
 {
@@ -27,7 +28,7 @@ namespace App.Controllers
             UserManager = userManager;
             SignInManager = signInManager;
         }
-
+            
         public ApplicationSignInManager SignInManager
         {
             get
@@ -229,9 +230,29 @@ namespace App.Controllers
             return View();
         }
 
-        //
-        // GET: /Account/ResetPassword
-        [AllowAnonymous]
+
+
+        public async Task<ActionResult> ResetTrainerPassword(string id)
+        {
+        
+            var user = await UserManager.FindByIdAsync(id);
+
+            if (user == null)
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+        
+            await UserManager.RemovePasswordAsync(id);
+
+            var newPassword = "Abcd@1234";
+            await UserManager.AddPasswordAsync(user.Id, newPassword);
+            return RedirectToAction("TrainerList", "Staff");
+        }
+
+
+
+
+            //
+            // GET: /Account/ResetPassword
+            [AllowAnonymous]
         public ActionResult ResetPassword(string code)
         {
             return code == null ? View("Error") : View();
