@@ -1,0 +1,27 @@
+﻿@model App.ViewModel.CourseUserViewModel
+@{
+    ViewBag.Title = "AssignCourseTrainer";
+}
+
+<h2>AssignCourseTrainer</h2>
+
+<div class="form-group">
+    @Html.ActionLink("Back to Trainer List", "TrainerList", "Staff",
+null,
+new { @class = "btn btn-primary" })
+</div>
+
+@using (Html.BeginForm("AssignCourseTrainer", "Staff", "POST"))
+{
+    <div class="form-group">
+        @Html.DisplayFor(model => model.User.UserName)
+        @Html.HiddenFor(model => model.User.Id)
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(model => model.TrainerUser.Course.Name)
+        @Html.DropDownListFor(model => model.TrainerUser.CourseId, new SelectList(Model.Courses, "Id", "Name"))
+    </div>
+    <div class="form-group">
+        <button type="submit" class="btn btn-primary">Assign Course</button>
+    </div>
+}

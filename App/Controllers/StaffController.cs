@@ -446,6 +446,9 @@ namespace App.Controllers
 
 
 
+
+      
+
         //
         //
         //
@@ -503,7 +506,16 @@ namespace App.Controllers
             trainerCourseInDb.CourseId = trainerCourse.TrainerUser.CourseId;
             trainerCourseInDb.CourseName = courseInDb.Name;
             _context.SaveChanges();
-            return RedirectToAction("ListTrainer");
+            return RedirectToAction("TrainerList");
+        }
+
+
+        public ActionResult RemoveCourseTrainer(int id)
+        {
+            var trainerCourseInDb = _context.trainerCourses.SingleOrDefault(c => c.Id == id);
+            _context.trainerCourses.Remove(trainerCourseInDb);
+            _context.SaveChanges();
+            return RedirectToAction("ViewCourseAssignedTrainer");
         }
     }       
 }
