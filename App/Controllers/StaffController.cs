@@ -403,7 +403,7 @@ namespace App.Controllers
             return View(trainerInDb);
         }
 
-        public ActionResult ProfileTrainer(string id)
+        public ActionResult TrainerProfile(string id)
         {
             var trainerInDb = _context.trainerUsers.SingleOrDefault(t => t.Id == id);
 

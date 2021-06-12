@@ -230,29 +230,39 @@ namespace App.Controllers
             return View();
         }
 
-
-
+        //
+        //ResetPasswordTrainer
         public async Task<ActionResult> ResetTrainerPassword(string id)
-        {
-        
+        {  
             var user = await UserManager.FindByIdAsync(id);
+            if (user == null)
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest); 
+            await UserManager.RemovePasswordAsync(id);
+            var newPassword = "123";
+            await UserManager.AddPasswordAsync(user.Id, newPassword);
+            return RedirectToAction("TrainerList", "Admin");
+        }
 
+
+        //
+        //ResetPasswordStaff
+        public async Task<ActionResult> ResetStaffPassword(string id)
+        {
+            var user = await UserManager.FindByIdAsync(id);
             if (user == null)
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-        
             await UserManager.RemovePasswordAsync(id);
-
-            var newPassword = "Abcd@1234";
+            var newPassword = "123";
             await UserManager.AddPasswordAsync(user.Id, newPassword);
-            return RedirectToAction("TrainerList", "Staff");
+            return RedirectToAction("StaffList", "Admin");
         }
 
 
 
 
-            //
-            // GET: /Account/ResetPassword
-            [AllowAnonymous]
+        //
+        // GET: /Account/ResetPassword
+        [AllowAnonymous]
         public ActionResult ResetPassword(string code)
         {
             return code == null ? View("Error") : View();
