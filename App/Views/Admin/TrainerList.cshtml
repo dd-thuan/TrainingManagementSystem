@@ -9,7 +9,7 @@
     @Html.ActionLink("Back to Home", "TrainerList", "Staff", null, new { @class = "btn btn-primary" })
 </div>
 
-@using (Html.BeginForm("TrainerList", "Staff", "POST"))
+@using (Html.BeginForm("TrainerList", "Admin", "POST"))
 {
     <div class="form-group">
         @Html.TextBox("searchString", "")

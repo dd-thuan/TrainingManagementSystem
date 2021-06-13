@@ -357,39 +357,6 @@ namespace App.Controllers
 
         //
         //TrainerList_CreateAccount_Assign-Change-DeleteCourseTrainer
-
-        [HttpGet]
-        public ActionResult CreateTrainer()
-        {
-            return View();
-        }
-        [HttpPost]
-        public ActionResult CreateTrainer(RegisterViewModel model)
-        {
-            if (ModelState.IsValid)
-            {
-                var user = new ApplicationUser { UserName = model.Email, Email = model.Email };
-                var result = _userManager.Create(user, model.Password);
-                if (result.Succeeded)
-                {
-                    _userManager.AddToRole(user.Id, "Trainer");
-                    var trainerUser = new TrainerUser()
-                    {
-                        Id = user.Id,
-                        UserName = user.UserName,
-                        FullName = model.FullName,
-                        Telephone = model.Telephone,
-                        WorkingPlace = model.WorkingPlace,
-                        type = model.Type,
-                        EmailAddress = user.UserName
-                    };
-                    _context.trainerUsers.Add(trainerUser);
-                }
-                _context.SaveChanges();
-                return RedirectToAction("TrainerList");
-            }
-            return View(model);
-        }
         public ActionResult TrainerList(string searchString)
         {
             var trainerInDb = _context.trainerUsers.ToList();
