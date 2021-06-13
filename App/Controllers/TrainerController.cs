@@ -10,6 +10,8 @@ using System.Web.Mvc;
 
 namespace App.Controllers
 {
+
+    [Authorize(Roles = "Trainer")]
     public class TrainerController : Controller
     {
         private readonly ApplicationDbContext _context;

@@ -10,6 +10,7 @@ using System.Web.Mvc;
 
 namespace App.Controllers
 {
+    [Authorize(Roles = "Admin")]
     public class AdminController : Controller
     {
         private ApplicationDbContext _context;
@@ -24,11 +25,6 @@ namespace App.Controllers
 
 
         // GET: Admin
-        public ActionResult Index()
-        {
-            return View();
-        }
-
         public ActionResult StaffList()
         {
             var roleId = _context.Roles.Where(r => r.Name.Equals("Staff")).FirstOrDefault().Id;

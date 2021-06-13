@@ -13,6 +13,8 @@ using System.Web.Mvc;
 
 namespace App.Controllers
 {
+    
+    [Authorize(Roles ="Staff")]
     public class StaffController : Controller
     {
 
@@ -27,17 +29,11 @@ namespace App.Controllers
 
 
         // GET: Staff
-        public ActionResult Index()
-        {
-            return View();
-        }
-
-
-
 
         //
         //
         //Course_List_And_CRUD
+        [Authorize(Roles = "Staff")]
         public ActionResult CourseList(string searchString)
         {
             var course = _context.courses.Include(t => t.Category).ToList();
@@ -52,6 +48,7 @@ namespace App.Controllers
         }
 
         [HttpGet]
+
         public ActionResult CreateCourse()
         {
             var viewModel = new CourseCategoryViewModel()

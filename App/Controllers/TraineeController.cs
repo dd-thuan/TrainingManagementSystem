@@ -10,6 +10,7 @@ using System.Web.Mvc;
 
 namespace App.Controllers
 {
+    [Authorize(Roles = "Trainee")]
     public class TraineeController : Controller
     {
         private ApplicationDbContext _context;
