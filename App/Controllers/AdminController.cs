@@ -101,61 +101,11 @@ namespace App.Controllers
                     _context.trainerUsers.Add(trainerUser);
                 }
                 _context.SaveChanges();
-                return RedirectToAction("TrainerList");
+                return RedirectToAction("TrainerList", "Staff");
             }
             return View(model);
         }
-        public ActionResult TrainerList(string searchString)
-        {
-            var trainerInDb = _context.trainerUsers.ToList();
-            if (!searchString.IsNullOrWhiteSpace())
-            {
-                trainerInDb = _context.trainerUsers
-                .Where(m => m.FullName.Contains(searchString) || m.Telephone.Contains(searchString))
-                .ToList();
-            }
-
-            return View(trainerInDb);
-        }
-
-        public ActionResult TrainerProfile(string id)
-        {
-            var trainerInDb = _context.trainerUsers.SingleOrDefault(t => t.Id == id);
-
-            return View(trainerInDb);
-        }
-
-        [HttpGet]
-        public ActionResult UpdateProfileTrainer(string id)
-        {
-            var trainerInDd = _context.trainerUsers.SingleOrDefault(c => c.Id == id);
-            return View(trainerInDd);
-        }
-
-        [HttpPost]
-        public ActionResult UpdateProfileTrainer(TrainerUser trainer)
-        {
-            var trainerInDb = _context.trainerUsers.SingleOrDefault(t => t.Id == trainer.Id);
-            {
-                trainerInDb.WorkingPlace = trainer.WorkingPlace;
-                trainerInDb.type = trainer.type;
-                trainerInDb.Telephone = trainer.Telephone;
-                trainerInDb.EmailAddress = trainer.EmailAddress;
-            }
-            _context.SaveChanges();
-            return RedirectToAction("TrainerList");
-        }
-
-        public ActionResult DeleteTrainer(string id)
-        {
-            var userInDb = _context.Users.SingleOrDefault(s => s.Id == id);
-            var trainerInDb = _context.trainerUsers.SingleOrDefault(t => t.Id == id);
-            _context.trainerUsers.Remove(trainerInDb);
-            _context.Users.Remove(userInDb);
-            _context.SaveChanges();
-            return RedirectToAction("TrainerList");
-        }
-
+       
 
     }
 }

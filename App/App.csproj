@@ -304,16 +304,15 @@
     <Content Include="Views\Staff\ViewCourseAssignedTrainee.cshtml" />
     <Content Include="Views\Staff\AssignCourseTrainee.cshtml" />
     <Content Include="Views\Staff\ChangeCourseTrainee.cshtml" />
-    <Content Include="Views\Staff\CreateTrainer.cshtml" />
     <Content Include="Views\Staff\TrainerList.cshtml" />
-    <Content Include="Views\Admin\TrainerProfile.cshtml" />
+    <Content Include="Views\Staff\TrainerProfile.cshtml" />
     <Content Include="Views\Staff\UpdateProfileTrainer.cshtml" />
     <Content Include="Views\Staff\ViewCourseAssignedTrainer.cshtml" />
     <Content Include="Views\Staff\AssignCourseTrainer.cshtml" />
     <Content Include="Views\Staff\ChangeCourseTrainer.cshtml" />
     <Content Include="Views\Admin\CreateStaff.cshtml" />
     <Content Include="Views\Admin\StaffList.cshtml" />
-    <Content Include="Views\Admin\TrainerList.cshtml" />
+    <Content Include="Views\Admin\CreateTrainer.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
