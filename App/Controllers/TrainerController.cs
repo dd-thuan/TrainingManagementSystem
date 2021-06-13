@@ -13,36 +13,43 @@ namespace App.Controllers
     public class TrainerController : Controller
     {
         private ApplicationDbContext _context;
-        private UserManager<ApplicationUser> _userManager;
+      
         public TrainerController()
         {
             _context = new ApplicationDbContext();
-            _userManager = new UserManager<ApplicationUser>(new UserStore<ApplicationUser>(new ApplicationDbContext()));
+         
         }
 
 
         // GET: Trainer
-        public ActionResult Index()
-        {
-            return View();
-        }
-
-        public ActionResult ViewProfile()
+        public ActionResult ViewMyProfile()
         {
             var CurrentTrainerId = User.Identity.GetUserId();
             var trainerInDb = _context.trainerUsers.SingleOrDefault(t => t.Id == CurrentTrainerId);
             return View(trainerInDb);
         }
 
+
+
+        public ActionResult AssignedCourse()
+        {
+            var CurrentTrainerId = User.Identity.GetUserId();
+            var trainerCourse = _context.trainerCourses.Where(t => t.TrainerId == CurrentTrainerId).Include(c => c.Course.Category).ToList();
+            return View(trainerCourse);
+        }
+
+
+        //
+        //Edit
         [HttpGet]
-        public ActionResult UpdateProfile()
+        public ActionResult EditProfile()
         {
             var CurrentUserId = User.Identity.GetUserId();
             var UserInDb = _context.trainerUsers.SingleOrDefault(c => c.Id == CurrentUserId);
             return View(UserInDb);
         }
         [HttpPost]
-        public ActionResult UpdateProfile(TrainerUser trainer)
+        public ActionResult EditProfile(TrainerUser trainer)
         {
             var CurrentUserId = User.Identity.GetUserId();
             var UserInDb = _context.Users.SingleOrDefault(c => c.Id == CurrentUserId);
@@ -56,31 +63,7 @@ namespace App.Controllers
             TrainerInDb.WorkingPlace = trainer.WorkingPlace;
             TrainerInDb.UserName = trainer.EmailAddress;
             _context.SaveChanges();
-            return RedirectToAction("ViewProfile", "Trainers");
-        }
-
-        [HttpGet]
-        public ActionResult ChangePassword()
-        {
-            return View();
-        }
-        [HttpPost]
-        public ActionResult ChangePassword(string password)
-        {
-            var CurrentTrainerId = User.Identity.GetUserId();
-            var TrainerInDb = _userManager.FindById(CurrentTrainerId);
-            string newPassword = password;
-            _userManager.RemovePassword(CurrentTrainerId);
-            _userManager.AddPassword(CurrentTrainerId, newPassword);
-            _userManager.Update(TrainerInDb);
-            return RedirectToAction("Index", "Home");
-        }
-
-        public ActionResult ViewAssignedCourse()
-        {
-            var CurrentTrainerId = User.Identity.GetUserId();
-            var trainerCourse = _context.trainerCourses.Where(t => t.TrainerId == CurrentTrainerId).Include(c => c.Course.Category).ToList();
-            return View(trainerCourse);
+            return RedirectToAction("ViewMyProfile", "Trainer");
         }
     }
 }

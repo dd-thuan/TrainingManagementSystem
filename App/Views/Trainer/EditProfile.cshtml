@@ -1,0 +1,36 @@
+﻿@model App.Models.TrainerUser
+@{
+    ViewBag.Title = "EditProfile";
+}
+
+<h2>ViewBag.Title</h2>
+
+@using (Html.BeginForm("EditProfile", "Trainer", "POST"))
+{
+    <div class="form-group">
+        @Html.LabelFor(model => model.FullName)
+        @Html.TextBoxFor(model => model.FullName, new { @class = "form-control" })
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(model => model.Telephone)
+        @Html.TextBoxFor(model => model.Telephone, new { @class = "form-control" })
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.WorkingPlace)
+        @Html.TextBoxFor(model => model.WorkingPlace, new { @class = "form-control" })
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.type)
+        @Html.EnumDropDownListFor(model => model.type, new { @class = "form-control" })
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(model => model.EmailAddress)
+        @Html.TextBoxFor(model => model.EmailAddress, new { @class = "form-control" })
+    </div>
+
+    <div class="form-group">
+        <button type="submit" class="btn btn-primary">Confirm Changes</button>
+    </div>
+}

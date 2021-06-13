@@ -238,9 +238,9 @@ namespace App.Controllers
             if (user == null)
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest); 
             await UserManager.RemovePasswordAsync(id);
-            var newPassword = "123";
+            var newPassword = "DDT@123";
             await UserManager.AddPasswordAsync(user.Id, newPassword);
-            return RedirectToAction("TrainerList", "Admin");
+            return RedirectToAction("TrainerList", "Staff");
         }
 
 
@@ -252,7 +252,7 @@ namespace App.Controllers
             if (user == null)
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             await UserManager.RemovePasswordAsync(id);
-            var newPassword = "123";
+            var newPassword = "DDT@123";
             await UserManager.AddPasswordAsync(user.Id, newPassword);
             return RedirectToAction("StaffList", "Admin");
         }

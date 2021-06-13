@@ -370,6 +370,41 @@ namespace App.Controllers
             return View(trainerInDb);
         }
 
+
+
+        [HttpGet]
+        public ActionResult CreateTrainer()
+        {
+            return View();
+        }
+        [HttpPost]
+        public ActionResult CreateTrainer(RegisterViewModel model)
+        {
+            if (ModelState.IsValid)
+            {
+                var user = new ApplicationUser { UserName = model.Email, Email = model.Email };
+                var result = _userManager.Create(user, model.Password);
+                if (result.Succeeded)
+                {
+                    _userManager.AddToRole(user.Id, "Trainer");
+                    var trainerUser = new TrainerUser()
+                    {
+                        Id = user.Id,
+                        UserName = user.UserName,
+                        FullName = model.FullName,
+                        Telephone = model.Telephone,
+                        WorkingPlace = model.WorkingPlace,
+                        type = model.Type,
+                        EmailAddress = user.UserName
+                    };
+                    _context.trainerUsers.Add(trainerUser);
+                }
+                _context.SaveChanges();
+                return RedirectToAction("TrainerList");
+            }
+            return View(model);
+        }
+
         public ActionResult TrainerProfile(string id)
         {
             var trainerInDb = _context.trainerUsers.SingleOrDefault(t => t.Id == id);
