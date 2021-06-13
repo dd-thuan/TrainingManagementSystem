@@ -12,7 +12,7 @@ namespace App.Controllers
 {
     public class TrainerController : Controller
     {
-        private ApplicationDbContext _context;
+        private readonly ApplicationDbContext _context;
       
         public TrainerController()
         {

@@ -16,8 +16,8 @@ namespace App.Controllers
     public class StaffController : Controller
     {
 
-        private ApplicationDbContext _context;
-        private UserManager<ApplicationUser> _userManager;
+        private readonly ApplicationDbContext _context;
+        private readonly UserManager<ApplicationUser> _userManager;
         public StaffController()
         {
             _context = new ApplicationDbContext();

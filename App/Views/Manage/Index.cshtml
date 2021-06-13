@@ -11,17 +11,31 @@
     <hr />
     <dl class="dl-horizontal">
         <dt>Password:</dt>
-        <dd>  @if (Model.HasPassword) {@Html.ActionLink("Change your password", "ChangePassword")}
-            else { @Html.ActionLink("Create", "SetPassword")}
+        <dd>
+            @if (Model.HasPassword)
+            {@Html.ActionLink("Change your password", "ChangePassword")}
+        else
+        { @Html.ActionLink("Create", "SetPassword")}
         </dd>
 
-        <dt>Profile</dt>
+        <dt>Profile:</dt>
         <dd>
-            @Html.ActionLink("View Profile", "ViewMyProfile", "Trainer", null, new { @class = "btn btn-primary btn-lg" })
+            @Html.ActionLink("View Profile", "ViewMyProfile", "Trainer")
         </dd>
-        <dt>Assigned Course</dt>
+        <dt>Assigned Course:</dt>
         <dd>
-            @Html.ActionLink("View Assigned Course", "AssignedCourse", "Trainer", null, new { @class = "btn btn-primary btn-lg" })
+            @Html.ActionLink("View Assigned Course", "AssignedCourse", "Trainer")
         </dd>
+
+
+        <dt>Profile:</dt>
+        <dd>
+            @Html.ActionLink("View Profile", "MyProfile", "Trainee")
+        </dd>
+        <dt>Assigned Course:</dt>
+        <dd>
+            @Html.ActionLink("View Assigned Course", "AssignedCourse", "Trainee")
+        </dd>
+
     </dl>
 </div>
