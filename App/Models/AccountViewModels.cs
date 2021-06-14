@@ -77,9 +77,11 @@ namespace App.Models
         [DisplayName("Type")]
         public TrainerUser.GetType Type { get; set; }
         [DisplayName("Date of Birth")]
+        [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
         public DateTime DateOfBirth { get; set; }
-        [DisplayName("Programing Langueage")]
-        public string mainProgrammingLangueage { get; set; }
+        [DisplayName("Programing Language")]
+
+        public string mainProgrammingLanguage { get; set; }
         [DisplayName("Toeic Score")]
         public string ToeicSocre { get; set; }
         [DisplayName("Department")]

@@ -230,7 +230,7 @@ namespace App.Controllers
                         DateOfBirth = model.DateOfBirth,
                         age = today.Year - model.DateOfBirth.Year,
                         Telephone = model.Telephone,
-                        mainProgrammingLanguage = model.mainProgrammingLangueage,
+                        mainProgrammingLanguage = model.mainProgrammingLanguage,
                         ToeicScore = model.ToeicSocre,
                         Department = model.Department,
                         EmailAddress = user.UserName

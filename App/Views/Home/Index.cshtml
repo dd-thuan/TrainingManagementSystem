@@ -1,9 +1,32 @@
-﻿@{
+﻿@using Microsoft.AspNet.Identity
+@{
     ViewBag.Title = "Home Page";
 }
 
 <div class="jumbotron">
-    <h1>ASP.NET</h1>'
-   
-    <p class="lead"> Training Management System</p>
+    <h1>Management System</h1>
+    @if (User.IsInRole("Admin"))
+    {
+        <h2>Welcome Admin</h2>
+        <p>Username: @User.Identity.GetUserName()</p>
+    }
+
+    @if (User.IsInRole("Staff"))
+    {
+        <h2>Welcome Staff</h2>
+        <p>Username: @User.Identity.GetUserName()</p>
+    }
+    @if (User.IsInRole("Trainer"))
+    {
+        <h2>Welcome Trainer</h2>
+        <p>Username: @User.Identity.GetUserName()</p>
+    }
+    @if (User.IsInRole("Trainee"))
+    {
+        <h2>Welcome Trainee</h2>
+        <p>Username: @User.Identity.GetUserName()</p>
+    }
+
+    <p class="lead"></p>
 </div>
+

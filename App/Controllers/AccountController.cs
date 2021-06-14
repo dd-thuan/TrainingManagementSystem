@@ -230,7 +230,18 @@ namespace App.Controllers
             return View();
         }
 
+
+
         //
+        // GET: /Account/ResetPassword
+        [AllowAnonymous]
+        public ActionResult ResetPassword(string code)
+        {
+            return code == null ? View("Error") : View();
+        }
+
+
+           //
         //ResetPasswordTrainer
       
         public async Task<ActionResult> ResetTrainerPassword(string id)
@@ -260,15 +271,6 @@ namespace App.Controllers
         }
 
 
-
-
-        //
-        // GET: /Account/ResetPassword
-        [AllowAnonymous]
-        public ActionResult ResetPassword(string code)
-        {
-            return code == null ? View("Error") : View();
-        }
 
         //
         // POST: /Account/ResetPassword
