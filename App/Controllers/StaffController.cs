@@ -13,8 +13,8 @@ using System.Web.Mvc;
 
 namespace App.Controllers
 {
-    
 
+   
     public class StaffController : Controller
     {
 
@@ -210,9 +210,7 @@ namespace App.Controllers
         //
         //TraineeList_Create-DeleteAccount_UpdateProfile_AssignCourse_
 
-        [Authorize(Roles = "Staff")]
-        [Authorize(Roles = "Admin")]
-
+    
         public ActionResult TraineeList(string searchString)
         {
             var traineeInDb = _context.traineeUsers.ToList();
@@ -225,7 +223,7 @@ namespace App.Controllers
             return View(traineeInDb);
         }
 
-        [Authorize(Roles = "Staff")]
+     
         public ActionResult CreateTrainee()
         {
             return View();
@@ -247,7 +245,6 @@ namespace App.Controllers
                         UserName = user.UserName,
                         FullName = model.FullName,
                         DateOfBirth = model.DateOfBirth,
-                        age = today.Year - model.DateOfBirth.Year,
                         Telephone = model.Telephone,
                         mainProgrammingLanguage = model.mainProgrammingLanguage,
                         ToeicScore = model.ToeicSocre,
@@ -285,7 +282,6 @@ namespace App.Controllers
                 traineeInDb.UserName = trainee.EmailAddress;
                 traineeInDb.FullName = trainee.FullName;
                 traineeInDb.DateOfBirth = trainee.DateOfBirth;
-                traineeInDb.age = trainee.age;
                 traineeInDb.Department = trainee.Department;
                 traineeInDb.Telephone = trainee.Telephone;
                 traineeInDb.ToeicScore = trainee.ToeicScore;
@@ -377,7 +373,7 @@ namespace App.Controllers
 
         //
         //TrainerList_CreateAccount_Assign-Change-DeleteCourseTrainer
-        [Authorize(Roles ="Admin")]
+      
         public ActionResult TrainerList(string searchString)
         {
             var trainerInDb = _context.trainerUsers.ToList();

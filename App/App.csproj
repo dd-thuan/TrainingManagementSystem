@@ -221,6 +221,10 @@
     <Compile Include="Migrations\202106140843008_addDisplay.Designer.cs">
       <DependentUpon>202106140843008_addDisplay.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202106141316337_deleteAge.cs" />
+    <Compile Include="Migrations\202106141316337_deleteAge.Designer.cs">
+      <DependentUpon>202106141316337_deleteAge.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Category.cs" />
@@ -372,6 +376,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202106140843008_addDisplay.resx">
       <DependentUpon>202106140843008_addDisplay.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202106141316337_deleteAge.resx">
+      <DependentUpon>202106141316337_deleteAge.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

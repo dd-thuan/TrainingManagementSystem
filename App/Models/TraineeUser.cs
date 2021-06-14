@@ -15,8 +15,6 @@ namespace App.Models
         public string UserName { get; set; }
         [DisplayName("Full Name")]
         public string FullName { get; set; }
-        [DisplayName("Age")]
-        public int age { get; set; }
         [DisplayName("Date Of Birth")]
         [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
         public DateTime DateOfBirth { get; set; }

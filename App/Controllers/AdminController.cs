@@ -16,6 +16,7 @@ namespace App.Controllers
         private ApplicationDbContext _context;
         private UserManager<ApplicationUser> _userManager;
 
+
         public AdminController()
         {
             _context = new ApplicationDbContext();
@@ -23,6 +24,7 @@ namespace App.Controllers
         }
 
 
+  
 
         // GET: Admin
         public ActionResult StaffList()
@@ -31,7 +33,7 @@ namespace App.Controllers
             var staffInDb = _context.Users.Where(s => s.Roles.Any(r => r.RoleId == roleId));
             return View(staffInDb);
         }
-
+        
         [HttpGet]
         public ActionResult CreateStaff()
         {
@@ -55,6 +57,7 @@ namespace App.Controllers
             return View(model);
         }
 
+     
         public ActionResult DeleteStaff(string id)
         {
             var userInDb = _context.Users.SingleOrDefault(s => s.Id == id);
