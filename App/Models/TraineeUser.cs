@@ -18,6 +18,7 @@ namespace App.Models
         [DisplayName("Age")]
         public int age { get; set; }
         [DisplayName("Date Of Birth")]
+        [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
         public DateTime DateOfBirth { get; set; }
         public string Telephone { get; set; }
         [DisplayName("Programming Language")]

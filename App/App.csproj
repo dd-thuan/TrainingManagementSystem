@@ -217,6 +217,10 @@
     <Compile Include="Migrations\202106101419456_addTrainer_TraineeCourseViewModel.Designer.cs">
       <DependentUpon>202106101419456_addTrainer_TraineeCourseViewModel.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202106140843008_addDisplay.cs" />
+    <Compile Include="Migrations\202106140843008_addDisplay.Designer.cs">
+      <DependentUpon>202106140843008_addDisplay.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Category.cs" />
@@ -365,6 +369,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202106101419456_addTrainer_TraineeCourseViewModel.resx">
       <DependentUpon>202106101419456_addTrainer_TraineeCourseViewModel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202106140843008_addDisplay.resx">
+      <DependentUpon>202106140843008_addDisplay.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
