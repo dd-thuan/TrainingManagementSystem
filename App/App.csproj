@@ -323,9 +323,9 @@
     <Content Include="Views\Trainer\ViewMyProfile.cshtml" />
     <Content Include="Views\Trainer\AssignedCourse.cshtml" />
     <Content Include="Views\Trainer\EditProfile.cshtml" />
-    <Content Include="Views\Trainee\MyProfile.cshtml" />
     <Content Include="Views\Trainee\AvailableCourse.cshtml" />
     <Content Include="Views\Trainee\AssignedCourse.cshtml" />
+    <Content Include="Views\Trainee\MyProfile.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

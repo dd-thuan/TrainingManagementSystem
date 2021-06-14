@@ -42,6 +42,7 @@
                     @Html.ActionLink("Detail Profile", "TraineeProfile", "Staff", new { id = item.Id }, new { @class = "btn btn-warning" })
                     @Html.ActionLink("Update Profile Trainee", "UpdateProfileTrainee", "Staff", new { id = item.Id }, new { @class = "btn btn-primary" })
                     @Html.ActionLink("Delete", "DeleteTrainee", "Staff", new { id = item.Id }, new { @class = "btn btn-danger" })
+                    @Html.ActionLink("Reset Password", "ResetTrainee", "Account", new { id = item.Id }, new { @class = "text-info" })
                 </td>
 
             </tr>
