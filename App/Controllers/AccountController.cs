@@ -18,15 +18,18 @@ namespace App.Controllers
     {
         private ApplicationSignInManager _signInManager;
         private ApplicationUserManager _userManager;
+        private ApplicationDbContext _context;
 
         public AccountController()
         {
+            _context = new ApplicationDbContext();
         }
 
         public AccountController(ApplicationUserManager userManager, ApplicationSignInManager signInManager )
         {
             UserManager = userManager;
             SignInManager = signInManager;
+            _context = new ApplicationDbContext();
         }
             
         public ApplicationSignInManager SignInManager
@@ -241,37 +244,7 @@ namespace App.Controllers
         }
 
 
-           //
-        //ResetPasswordTrainer
-      
-        public async Task<ActionResult> ResetTrainerPassword(string id)
-        {  
-            var user = await UserManager.FindByIdAsync(id);
-            if (user == null)
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest); 
-            await UserManager.RemovePasswordAsync(id);
-            var newPassword = "DDT@123";
-            await UserManager.AddPasswordAsync(user.Id, newPassword);
-            return RedirectToAction("Index", "Home");
-        }
-
-
-        //
-        //ResetPasswordStaff
-     
-        public async Task<ActionResult> ResetStaffPassword(string id)
-        {
-            var user = await UserManager.FindByIdAsync(id);
-            if (user == null)
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            await UserManager.RemovePasswordAsync(id);
-            var newPassword = "Abcd@1234";
-            await UserManager.AddPasswordAsync(user.Id, newPassword);
-            return RedirectToAction("Index", "Home");
-        }
-
-
-
+  
         //
         // POST: /Account/ResetPassword
         [HttpPost]
@@ -305,6 +278,44 @@ namespace App.Controllers
         {
             return View();
         }
+
+
+        [Authorize(Roles ="Admin")]
+        public async Task<ActionResult> ResetStaff(string id)
+        {
+            var user = await UserManager.FindByIdAsync(id);
+            if (user == null)
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            await UserManager.RemovePasswordAsync(id);
+            var newPassword = "Staff@123";
+            await UserManager.AddPasswordAsync(user.Id, newPassword);
+            return RedirectToAction("Index", "Home");
+        }
+
+        [Authorize(Roles = "Admin")]
+        public async Task<ActionResult> ResetTrainer(string id)
+        {
+            var user = await UserManager.FindByIdAsync(id);
+            if (user == null)
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            await UserManager.RemovePasswordAsync(id);
+            var newPassword = "Trainer@123";
+            await UserManager.AddPasswordAsync(user.Id, newPassword);
+            return RedirectToAction("Index", "Home");
+        }
+
+        [Authorize(Roles = "Staff")]
+        public async Task<ActionResult> ResetTrainee(string id)
+        {
+            var user = await UserManager.FindByIdAsync(id);
+            if (user == null)
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            await UserManager.RemovePasswordAsync(id);
+            var newPassword = "Trainee@123";
+            await UserManager.AddPasswordAsync(user.Id, newPassword);
+            return RedirectToAction("Index", "Home");
+        }
+
 
         //
         // POST: /Account/ExternalLogin

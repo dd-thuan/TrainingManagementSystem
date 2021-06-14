@@ -27,11 +27,27 @@ namespace App.Controllers
   
 
         // GET: Admin
+
+
+
         public ActionResult StaffList()
         {
-            var roleId = _context.Roles.Where(r => r.Name.Equals("Staff")).FirstOrDefault().Id;
-            var staffInDb = _context.Users.Where(s => s.Roles.Any(r => r.RoleId == roleId));
-            return View(staffInDb);
+          /*  var roleId = _context.Roles.Where(r => r.Name.Equals("Staff")).FirstOrDefault().Id;
+            var staffInDb = _context.Users.Where(s => s.Roles.Any(r => r.RoleId == roleId));*/
+            var users = _context.Users.ToList();
+            var staffs = new List<ApplicationUser>();
+
+            foreach (var user in users)
+            {
+                if (_userManager.GetRoles(user.Id)[0].Equals("Staff"))
+                {
+                    staffs.Add(user);
+                }
+            }
+
+
+
+            return View(staffs);
         }
         
         [HttpGet]

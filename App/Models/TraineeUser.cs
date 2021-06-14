@@ -16,7 +16,7 @@ namespace App.Models
         [DisplayName("Full Name")]
         public string FullName { get; set; }
         [DisplayName("Date Of Birth")]
-        [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
+        [DisplayFormat(DataFormatString = "{0:dd-MMM-yyyy}", ApplyFormatInEditMode = true)]
         public DateTime DateOfBirth { get; set; }
         public string Telephone { get; set; }
         [DisplayName("Programming Language")]

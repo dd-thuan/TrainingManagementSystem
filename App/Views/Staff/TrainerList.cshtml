@@ -6,7 +6,7 @@
 <h2>TrainerList</h2>
 
 <div class="form-group">
-    @Html.ActionLink("Back to Home", "TrainerList", "Staff", null, new { @class = "btn btn-primary" })
+    @Html.ActionLink("Back to Home", "Index", "Home", null, new { @class = "btn btn-primary" })
 </div>
 
 @using (Html.BeginForm("TrainerList", "Staff", "POST"))
@@ -42,7 +42,7 @@
                 @if (User.IsInRole("Admin"))
                 {
                    <td>
-                    @Html.ActionLink("Reset Password", "ResetTrainerPassword", "Account", new { id = item.Id }, new { @class = "btn btn-primary" })
+                    @Html.ActionLink("Reset Password", "ResetTrainer", "Account", new { id = item.Id }, new { @class = "text-info" })
                     @Html.ActionLink("Delete", "DeleteTrainer", "Staff", new { id = item.Id }, new { @class = "btn btn-danger" })
                    
                    </td>

@@ -210,7 +210,7 @@ namespace App.Controllers
         //
         //TraineeList_Create-DeleteAccount_UpdateProfile_AssignCourse_
 
-    
+        [Authorize(Roles ="Staff")]
         public ActionResult TraineeList(string searchString)
         {
             var traineeInDb = _context.traineeUsers.ToList();
@@ -223,7 +223,8 @@ namespace App.Controllers
             return View(traineeInDb);
         }
 
-     
+
+        [Authorize(Roles = "Staff")]
         public ActionResult CreateTrainee()
         {
             return View();
@@ -334,6 +335,7 @@ namespace App.Controllers
             return RedirectToAction("TraineeList");
         }
 
+
         [Authorize(Roles = "Staff")]
         [HttpGet]
         public ActionResult ChangeCourseTrainee(int id)
@@ -366,6 +368,17 @@ namespace App.Controllers
             return RedirectToAction("ViewCourseAssignedTrainee");
         }
 
+        [Authorize(Roles = "Staff")]
+        public ActionResult DeleteTrainee(string id)
+        {
+            var userInDb = _context.Users.SingleOrDefault(s => s.Id == id);
+            var traineeInDb = _context.traineeUsers.SingleOrDefault(t => t.Id == id);
+            _context.traineeUsers.Remove(traineeInDb);
+            _context.Users.Remove(userInDb);
+            _context.SaveChanges();
+            return RedirectToAction("Index","Home");
+        }
+
 
 
 
@@ -373,7 +386,7 @@ namespace App.Controllers
 
         //
         //TrainerList_CreateAccount_Assign-Change-DeleteCourseTrainer
-      
+
         public ActionResult TrainerList(string searchString)
         {
             var trainerInDb = _context.trainerUsers.ToList();
@@ -453,6 +466,7 @@ namespace App.Controllers
             return RedirectToAction("TrainerList");
         }
 
+        [Authorize(Roles = "Admin")]
         public ActionResult DeleteTrainer(string id)
         {
             var userInDb = _context.Users.SingleOrDefault(s => s.Id == id);
@@ -460,16 +474,8 @@ namespace App.Controllers
             _context.trainerUsers.Remove(trainerInDb);
             _context.Users.Remove(userInDb);
             _context.SaveChanges();
-            return RedirectToAction("TrainerList");
+            return RedirectToAction("Index","Home");
         }
-
-
-
-
-
-
-
-
 
 
         [Authorize(Roles = "Staff")]
