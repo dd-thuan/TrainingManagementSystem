@@ -32,8 +32,7 @@ namespace App.Controllers
 
         public ActionResult StaffList()
         {
-          /*  var roleId = _context.Roles.Where(r => r.Name.Equals("Staff")).FirstOrDefault().Id;
-            var staffInDb = _context.Users.Where(s => s.Roles.Any(r => r.RoleId == roleId));*/
+
             var users = _context.Users.ToList();
             var staffs = new List<ApplicationUser>();
 

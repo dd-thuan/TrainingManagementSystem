@@ -5,9 +5,7 @@
 
 <h2>CreateTrainer</h2>
 
-<div class="form-group">
-    @Html.ActionLink("Cancel", "TrainerList", "Staff", null, new { @class = "btn btn-primary" })
-</div>
+
 @using (Html.BeginForm("CreateTrainer", "Staff", "POST"))
 {
     @Html.ValidationSummary("", new { @class = "text-danger" })
@@ -16,6 +14,7 @@
         @Html.LabelFor(m => m.Email, new { @class = "col-md-2 control-label" })
         <div class="col-md-10">
             @Html.TextBoxFor(m => m.Email, new { @class = "form-control" })
+            @Html.ValidationMessageFor(m => m.Email, "", new { @class = "text-danger" })
         </div>
     </div>
 
@@ -23,6 +22,7 @@
         @Html.LabelFor(m => m.Password, new { @class = "col-md-2 control-label" })
         <div class="col-md-10">
             @Html.PasswordFor(m => m.Password, new { @class = "form-control" })
+            @Html.ValidationMessageFor(m => m.Password, "", new { @class = "text-danger" })
         </div>
     </div>
 
@@ -30,6 +30,7 @@
         @Html.LabelFor(m => m.ConfirmPassword, new { @class = "col-md-2 control-label" })
         <div class="col-md-10">
             @Html.PasswordFor(m => m.ConfirmPassword, new { @class = "form-control" })
+            @Html.ValidationMessageFor(m => m.ConfirmPassword, "", new { @class = "text-danger" })
         </div>
     </div>
 
@@ -37,6 +38,7 @@
         @Html.LabelFor(m => m.FullName, new { @class = "col-md-2 control-label" })
         <div class="col-md-10">
             @Html.TextBoxFor(m => m.FullName, new { @class = "form-control" })
+            @Html.ValidationMessageFor(m => m.FullName, "", new { @class = "text-danger" })
         </div>
     </div>
 
@@ -44,6 +46,7 @@
         @Html.LabelFor(m => m.Telephone, new { @class = "col-md-2 control-label" })
         <div class="col-md-10">
             @Html.TextBoxFor(m => m.Telephone, new { @class = "form-control" })
+            @Html.ValidationMessageFor(m => m.Telephone, "", new { @class = "text-danger" })
         </div>
     </div>
 
@@ -52,11 +55,13 @@
         @Html.LabelFor(m => m.WorkingPlace, new { @class = "col-md-2 control-label" })
         <div class="col-md-10">
             @Html.TextBoxFor(m => m.WorkingPlace, new { @class = "form-control" })
+
         </div>
     </div>
 
 
     <div class="form-group">
         <button type="submit" class="btn btn-primary">Create Trainer Account</button>
+        @Html.ActionLink("Cancel", "TrainerList", "Staff", null, new { @class = "btn btn-primary" })
     </div>
 }

@@ -9,19 +9,23 @@
 
 @using (Html.BeginForm("CreateCourse", "Staff", "POST"))
 {
-    <div class="form-group">
-        @Html.LabelFor(model => model.Courses.Name)
-        @Html.TextBoxFor(model => model.Courses.Name, new { @class = "form-control" })
-    </div>
-    <div class="form-group">
-        @Html.LabelFor(model => model.Courses.Description)
-        @Html.TextBoxFor(model => model.Courses.Description, new { @class = "form-control" })
-    </div>
-    <div class="form-group">
-        @Html.LabelFor(model => model.Courses.Category.Name)
-        @Html.DropDownListFor(model => model.Courses.CategoryId, new SelectList(Model.Categories, "Id", "Name"))
-    </div>
+<div class="form-group">
+    @Html.LabelFor(model => model.Courses.Name)
+    @Html.TextBoxFor(model => model.Courses.Name, new { @class = "form-control" })
+    @Html.ValidationMessageFor(m => m.Courses.Name, "", new { @class = "text-danger" })
+</div>
+<div class="form-group">
+    @Html.LabelFor(model => model.Courses.Description)
+    @Html.TextBoxFor(model => model.Courses.Description, new { @class = "form-control" })
+    @Html.ValidationMessageFor(m => m.Courses.Description, "", new { @class = "text-danger" })
+</div>
+<div class="form-group">
+    @Html.LabelFor(model => model.Courses.Category.Name)
+    @Html.DropDownListFor(model => model.Courses.CategoryId, new SelectList(Model.Categories, "Id", "Name"))
+  
+</div>
     <div class="form-group">
         <button type="submit" class="btn btn-primary">Create Course</button>
+        @Html.ActionLink("Back to List", "CourseList", "Staff", null, new { @class = "btn btn-primary" })
     </div>
 }

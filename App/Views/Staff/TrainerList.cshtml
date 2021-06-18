@@ -9,6 +9,15 @@
     @Html.ActionLink("Back to Home", "Index", "Home", null, new { @class = "btn btn-primary" })
 </div>
 
+
+@if (User.IsInRole("Admin"))
+{
+    <div class="form-group">
+        @Html.ActionLink("Create a Trainer", "CreateTrainer", "Staff", null, new { @class = "btn btn-primary" })
+    </div>
+}
+
+
 @using (Html.BeginForm("TrainerList", "Staff", "POST"))
 {
     <div class="form-group">
@@ -17,12 +26,7 @@
     </div>
 }
 
-@if (User.IsInRole("Admin"))
-{
-    <div class="form-group">
-        @Html.ActionLink("Create a Trainer", "CreateTrainer", "Staff", null, new { @class = "btn btn-primary" })
-    </div>
-}
+
 
 
 <table class="table table-bordered">
@@ -36,26 +40,26 @@
     <tbody>
         @foreach (var item in Model)
         {
-        <tr>
-            <td>@item.FullName</td>
-     
+            <tr>
+                <td>@item.FullName</td>
+
                 @if (User.IsInRole("Admin"))
                 {
-                   <td>
-                    @Html.ActionLink("Reset Password", "ResetTrainer", "Account", new { id = item.Id }, new { @class = "text-info" })
-                    @Html.ActionLink("Delete", "DeleteTrainer", "Staff", new { id = item.Id }, new { @class = "btn btn-danger" })
-                   
-                   </td>
-                 }
+                    <td>
+                        @Html.ActionLink("Reset Password", "ResetTrainer", "Account", new { id = item.Id }, new { @class = "text-info" })
+                        @Html.ActionLink("Delete", "DeleteTrainer", "Staff", new { id = item.Id }, new { @class = "btn btn-danger" })
+
+                    </td>
+                }
 
                 @if (User.IsInRole("Staff"))
                 {
-                  <td>
-                    @Html.ActionLink("Assign Course", "AssignCourseTrainer", "Staff", new { id = item.Id }, new { @class = "btn btn-success" })
-                    @Html.ActionLink("View Course", "ViewCourseAssignedTrainer", "Staff", new { id = item.Id }, new { @class = "btn btn-info" })
-                    @Html.ActionLink("Detail Profile", "TrainerProfile", "Staff", new { id = item.Id }, new { @class = "btn btn-warning" })
-                    @Html.ActionLink("Update Profile Trainer", "UpdateProfileTrainer", "Staff", new { id = item.Id }, new { @class = "btn btn-primary" })
-                  </td>
+                    <td>
+                        @Html.ActionLink("Assign Course", "AssignCourseTrainer", "Staff", new { id = item.Id }, new { @class = "btn btn-success" })
+                        @Html.ActionLink("View Course", "ViewCourseAssignedTrainer", "Staff", new { id = item.Id }, new { @class = "btn btn-info" })
+                        @Html.ActionLink("Detail Profile", "TrainerProfile", "Staff", new { id = item.Id }, new { @class = "btn btn-warning" })
+                        @Html.ActionLink("Update Profile Trainer", "UpdateProfileTrainer", "Staff", new { id = item.Id }, new { @class = "btn btn-primary" })
+                    </td>
                 }
             </tr>
         }

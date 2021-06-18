@@ -34,7 +34,9 @@
 
                     @if (User.IsInRole("Staff"))
                     {
-                        <li>@Html.ActionLink("Trainer List", "TrainerList", "Staff")</li>
+                        <li>@Html.ActionLink("Course List", "CourseList", "Staff")</li>
+                        <li>@Html.ActionLink("Category List", "CategoryList", "Staff")</li>
+                        <li>@Html.ActionLink("Trainer List", "Traine    rList", "Staff")</li>
                         <li>@Html.ActionLink("Trainee List", "TraineeList", "Staff")</li>
                     }
 
