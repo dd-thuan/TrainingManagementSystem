@@ -66,13 +66,16 @@ namespace App.Models
 
     public class RegisterViewModel
     {
-        [DisplayName("Full Name")]
+       
+      
         public string FullName { get; set; }
         [DisplayName("Working Place")]
         public string WorkingPlace { get; set; }
         [DisplayName("Email Address")]
+       
         public string EmailAddress { get; set; }
         [DisplayName("Phone Number")]
+   
         public string Telephone { get; set; }
         [DisplayName("Type")]
         public TrainerUser.GetType Type { get; set; }
@@ -86,6 +89,7 @@ namespace App.Models
         public string ToeicSocre { get; set; }
         [DisplayName("Department")]
         public string Department { get; set; }
+        public string Role { get; set; }
 
 
 

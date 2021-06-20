@@ -6,14 +6,14 @@
 <h2>TrainerList</h2>
 
 <div class="form-group">
-    @Html.ActionLink("Back to Home", "Index", "Home", null, new { @class = "btn btn-primary" })
+    @Html.ActionLink("Back to Home", "Index", "Home", null, new { @class = "btn btn-default" })
 </div>
 
 
 @if (User.IsInRole("Admin"))
 {
     <div class="form-group">
-        @Html.ActionLink("Create a Trainer", "CreateTrainer", "Staff", null, new { @class = "btn btn-primary" })
+        @Html.ActionLink("Create a Trainer", "CreateTrainer", "Staff", null, new { @class = "btn btn-success" })
     </div>
 }
 
@@ -46,7 +46,7 @@
                 @if (User.IsInRole("Admin"))
                 {
                     <td>
-                        @Html.ActionLink("Reset Password", "ResetTrainer", "Account", new { id = item.Id }, new { @class = "text-info" })
+                        @Html.ActionLink("Reset Password", "ResetTrainer", "Account", new { id = item.Id }, new { @class = "btn btn-warning" })
                         @Html.ActionLink("Delete", "DeleteTrainer", "Staff", new { id = item.Id }, new { @class = "btn btn-danger" })
 
                     </td>

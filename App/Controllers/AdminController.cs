@@ -27,9 +27,6 @@ namespace App.Controllers
   
 
         // GET: Admin
-
-
-
         public ActionResult StaffList()
         {
 
@@ -64,7 +61,7 @@ namespace App.Controllers
                 var result = _userManager.Create(user, model.Password);
                 if (result.Succeeded)
                 {
-                    _userManager.AddToRole(user.Id, "Staff");
+                    _userManager.AddToRole(user.Id, model.Role);
                     _context.SaveChanges();
                 }
                 return RedirectToAction("StaffList");

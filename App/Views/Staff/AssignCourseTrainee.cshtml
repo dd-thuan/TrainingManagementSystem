@@ -5,11 +5,6 @@
 
 <h2>AssignCourseTrainee</h2>
 
-<div class="form-group">
-    @Html.ActionLink("Back to Trainee List", "TraineeList", "Staff",
-null,
-new { @class = "btn btn-primary" })
-</div>
 
 @using (Html.BeginForm("AssignCourseTrainee", "Staff", "POST"))
 {
@@ -22,6 +17,7 @@ new { @class = "btn btn-primary" })
         @Html.DropDownListFor(model => model.TraineeUser.CourseId, new SelectList(Model.Courses, "Id", "Name"))
     </div>
     <div class="form-group">
-        <button type="submit" class="btn btn-primary">Assign Course</button>
+        @Html.ActionLink("Cancel", "TraineeList", "Staff", null, new { @class = "btn btn-default" })
+        <button type="submit" class="btn btn-success">Assign Course</button>
     </div>
 }

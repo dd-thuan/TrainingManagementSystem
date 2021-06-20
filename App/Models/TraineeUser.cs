@@ -14,10 +14,14 @@ namespace App.Models
         public string Id { get; set; }
         public string UserName { get; set; }
         [DisplayName("Full Name")]
+
+        [Required]
         public string FullName { get; set; }
+        [Required]
         [DisplayName("Date Of Birth")]
         [DisplayFormat(DataFormatString = "{0:dd-MMM-yyyy}", ApplyFormatInEditMode = true)]
         public DateTime DateOfBirth { get; set; }
+        [Required]
         public string Telephone { get; set; }
         [DisplayName("Programming Language")]
         public string mainProgrammingLanguage { get; set; }

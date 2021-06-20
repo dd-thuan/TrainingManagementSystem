@@ -268,6 +268,14 @@
     <Compile Include="Migrations\202106141316337_deleteAge.Designer.cs">
       <DependentUpon>202106141316337_deleteAge.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202106180209109_addRequired.cs" />
+    <Compile Include="Migrations\202106180209109_addRequired.designer.cs">
+      <DependentUpon>202106180209109_addRequired.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202106180218354_addRequiredRegisterModel.cs" />
+    <Compile Include="Migrations\202106180218354_addRequiredRegisterModel.designer.cs">
+      <DependentUpon>202106180218354_addRequiredRegisterModel.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Category.cs" />
@@ -424,6 +432,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202106141316337_deleteAge.resx">
       <DependentUpon>202106141316337_deleteAge.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202106180209109_addRequired.resx">
+      <DependentUpon>202106180209109_addRequired.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202106180218354_addRequiredRegisterModel.resx">
+      <DependentUpon>202106180218354_addRequiredRegisterModel.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

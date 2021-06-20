@@ -7,7 +7,7 @@
 
 <div class="form-group">
     @Html.ActionLink("Back to Home", "Index", "Home", null, new { @class = "btn btn-primary" })
-    @Html.ActionLink("Create Trainee Account", "CreateTrainee", "Staff", null, new { @class = "btn btn-primary" })
+    @Html.ActionLink("Create Trainee Account", "CreateTrainee", "Staff", null, new { @class = "btn btn-success" })
 </div>
 
 @using (Html.BeginForm("TraineeList", "Staff", "POST"))
@@ -38,11 +38,11 @@
 
 
                     @Html.ActionLink("Assign Course", "AssignCourseTrainee", "Staff", new { id = item.Id }, new { @class = "btn btn-success" })
-                    @Html.ActionLink("View Course", "ViewCourseAssignedTrainee", "Staff", new { id = item.Id }, new { @class = "btn btn-info" })
-                    @Html.ActionLink("Detail Profile", "TraineeProfile", "Staff", new { id = item.Id }, new { @class = "btn btn-warning" })
+                    @Html.ActionLink("View Course", "ViewCourseAssignedTrainee", "Staff", new { id = item.Id }, new { @class = "btn btn-default" })
+                    @Html.ActionLink("Detail Profile", "TraineeProfile", "Staff", new { id = item.Id }, new { @class = "btn btn-info" })
                     @Html.ActionLink("Update Profile Trainee", "UpdateProfileTrainee", "Staff", new { id = item.Id }, new { @class = "btn btn-primary" })
                     @Html.ActionLink("Delete", "DeleteTrainee", "Staff", new { id = item.Id }, new { @class = "btn btn-danger" })
-                    @Html.ActionLink("Reset Password", "ResetTrainee", "Account", new { id = item.Id }, new { @class = "text-info" })
+                    @Html.ActionLink("Reset Password", "ResetTrainee", "Account", new { id = item.Id }, new { @class = "btn btn-warning" })
                 </td>
 
             </tr>

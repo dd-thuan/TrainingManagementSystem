@@ -7,9 +7,7 @@
 
 
 <div class="form-group">
-    @Html.ActionLink("Back to List Trainer", "TrainerList", "Staff",
-        null,
-        new { @class = "btn btn-primary" })
+    @Html.ActionLink("Back to List Trainer", "TrainerList", "Staff", null, new { @class = "btn btn-default" })
 </div>
 
 <table class="table table-bordered">
@@ -26,8 +24,8 @@
             <tr>
                 <td>@item.CourseName</td>
                 <td>
-                    @Html.ActionLink("Change Course", "ChangeCourseTrainer", "Staff", new { id = item.Id }, new { @class = "btn btn-warning" })
-                    @Html.ActionLink("Remove Course", "RemoveCourseTrainer", "Staff", new { id = item.Id }, new { @class = "btn btn-danger" })
+                    @Html.ActionLink("Change", "ChangeCourseTrainer", "Staff", new { id = item.Id }, new { @class = "btn btn-warning" })
+                    @Html.ActionLink("Remove", "RemoveCourseTrainer", "Staff", new { id = item.Id }, new { @class = "btn btn-danger" })
                 </td>
 
             </tr>

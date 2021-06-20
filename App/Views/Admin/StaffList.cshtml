@@ -6,11 +6,11 @@
 <h2>ListStaff</h2>
 
 <div class="form-group">
-    @Html.ActionLink("Back to Home", "Index", "Home", null, new { @class = "btn btn-primary" })
+    @Html.ActionLink("Back to Home", "Index", "Home", null, new { @class = "btn btn-default" })
 </div>
 
 <div class="form-group">
-    @Html.ActionLink("Create Staff", "CreateStaff", "Admin", null, new { @class = "btn btn-primary" })
+    @Html.ActionLink("Create Staff", "CreateStaff", "Admin", null, new { @class = "btn btn-success" })
 </div>
 
 <div class="form-group">
@@ -32,8 +32,8 @@
                 <td>@item.UserName</td>
                 <td>
 
-                    @Html.ActionLink("Reset Password", "ResetStaff", "Account", new { id = item.Id }, new { @class = "text-info" })
-                    @Html.ActionLink("Delete", "DeleteStaff", "Admin", new { id = item.Id }, new { @class = "text-danger"  })
+                    @Html.ActionLink("Reset Password", "ResetStaff", "Account", new { id = item.Id }, new { @class = "btn btn-warning" })
+                    @Html.ActionLink("Delete", "DeleteStaff", "Admin", new { id = item.Id }, new { @class = "btn btn-danger"  })
                 </td>
             </tr>
         }

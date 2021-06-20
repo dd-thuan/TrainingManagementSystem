@@ -13,6 +13,7 @@ namespace App.Models
         [Key]
         public string Id { get; set; }
         public string UserName { get; set; }
+        [Required]
         [DisplayName("Full Name")]
         public string FullName { get; set; }
         [DisplayName("Type")]
@@ -24,7 +25,9 @@ namespace App.Models
             Internal = 1,
             External = 2
         }
+        [Required]
         [DisplayName("Phone Number")]
+
         public string Telephone { get; set; }
         [DisplayName("Working Place")]
         public string WorkingPlace { get; set; }
