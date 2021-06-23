@@ -67,7 +67,6 @@ namespace App.Models
     public class RegisterViewModel
     {
        
-      
         public string FullName { get; set; }
         [DisplayName("Working Place")]
         public string WorkingPlace { get; set; }

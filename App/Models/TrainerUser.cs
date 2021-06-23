@@ -16,6 +16,7 @@ namespace App.Models
         [Required]
         [DisplayName("Full Name")]
         public string FullName { get; set; }
+ 
         [DisplayName("Type")]
         public GetType type { get; set; }
         public enum GetType

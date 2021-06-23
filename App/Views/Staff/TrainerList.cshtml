@@ -13,7 +13,7 @@
 @if (User.IsInRole("Admin"))
 {
     <div class="form-group">
-        @Html.ActionLink("Create a Trainer", "CreateTrainer", "Staff", null, new { @class = "btn btn-success" })
+        @Html.ActionLink("Create a Trainer", "CreateTrainer", "Admin", null, new { @class = "btn btn-success" })
     </div>
 }
 
